@@ -590,6 +590,23 @@ main{width:100%!important;height:100%!important;overflow:hidden!important}
 #home .table-pokeball span{display:none!important;}
 #home .hidden-daily-trigger{display:none!important;}
 </style>
+
+<style id="party-nuclear-background-reset">
+/* Remove every legacy BOX 1 layer, arrow, frame and green cover from the old PC mock-up. */
+#home .pc-scene::before,#home .pc-scene::after,
+#home .pc-title-overlay::before,#home .pc-title-overlay::after,
+#home .pc-roaming-party::before,#home .pc-roaming-party::after,
+#home #combinedParty::before,#home #combinedParty::after{content:none!important;display:none!important;background:none!important;background-image:none!important;box-shadow:none!important;border:0!important;}
+#home .pc-scene{background-image:none!important;background-color:transparent!important;border:0!important;box-shadow:none!important;outline:0!important;padding:0!important;}
+#home .pc-title-overlay{background:var(--daily-pc-title) center/100% 100% no-repeat!important;background-color:transparent!important;border:0!important;outline:0!important;box-shadow:none!important;}
+#home .pc-roaming-party,#home #combinedParty{background:var(--daily-pc-field) center/100% 100% no-repeat!important;background-color:transparent!important;border:0!important;outline:0!important;box-shadow:none!important;}
+/* The old decorative children must not render over the selected daily field. */
+#home .pc-scene>.pc-box-header,#home .pc-scene>.pc-box-frame,#home .pc-scene>.pc-box-controls,
+#home .pc-arrow,#home .pc-box-name,#home .box-arrow,#home .box-label{display:none!important;visibility:hidden!important;}
+/* Only Pokemon and the empty-state message may sit over the daily field. */
+#home #combinedParty>*{position:absolute!important;z-index:4!important;}
+#home #combinedParty>.pc-empty{inset:50% auto auto 50%!important;transform:translate(-50%,-50%)!important;width:auto!important;height:auto!important;background:transparent!important;}
+</style>
 </head><body><script>(()=>{const a=String(localStorage.getItem('trainerAvatar')||'').toLowerCase();if(a==='pokemon:145'||a==='145'||a.includes('zapdos'))localStorage.setItem('trainerAvatar','trainer:red');})();</script>
 <div class="auth-gate" id="authGate"><div class="gate card"><button aria-label="Pokédex system" class="logo" id="appLogo" type="button"></button><span class="eyebrow">Trainer access</span><h2 id="gateTitle">Welcome back</h2><p class="muted">Sign in to continue your collection.</p><div class="gate-tabs"><button class="primary" id="loginTab">Sign in</button><button class="secondary" id="signupTab">Create account</button></div><form id="authForm"><label>Email<input id="email" required="" type="email"/></label><label>Password<input id="password" minlength="8" required="" type="password"/></label><button class="primary" id="authSubmit">Sign in</button></form><button class="secondary" id="forgot">Forgot password?</button><p id="authMessage"></p><button class="secondary" id="localMode">Continue locally if account service is unavailable</button></div></div>
 <div class="app locked" id="app"><header aria-hidden="true" style="display:none!important"><button aria-label="Pokédex system" class="logo" id="appLogo" type="button"></button><h1 id="headerTitle">POKÉMON DAILY</h1><span class="sync" id="syncDot"></span><button aria-hidden="true" aria-label="Open account" class="header-avatar" disabled="disabled" id="profileButton" style="display:none!important" tabindex="-1" type="button"><span id="headerAvatarIcon">◉</span></button></header><main>
